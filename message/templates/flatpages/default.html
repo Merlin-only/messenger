@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <!-- Подключаем файлы стилей -->
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+</head>
+<body>
+    <!-- Хэдер с логотипом и ссылкой на выход из аккаунта -->
+    <header>
+        <div class="logo">
+            <h1>Chat</h1>
+        </div>
+        <div class="logout">
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </header>
+
+    <!-- Основная область с чатом -->
+    <main>
+        <div class="container">
+            <div class="row">
+                <!-- Список пользователей -->
+                <div class="col-md-3">
+                    <h3>Users</h3>
+                    <ul class="list-group" id="user-list">
+                        <!-- Список пользователей будет загружаться через JavaScript -->
+                    </ul>
+                </div>
+                <!-- Область чата -->
+                <div class="col-md-9">
+                    <h3 id="chat-name">Chat</h3>
+                    <div class="chat" id="chat">
+                        <!-- Сообщения будут загружаться через JavaScript -->
+                    </div>
+                    <div class="input-group">
+                        <textarea class="form-control" id="message-input" placeholder="Type your message"></textarea>
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button" id="send-button">Send</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подключаем файлы скриптов -->
+    <script src="{% static 'js/chat.js' %}"></script>
+</body>
+</html>

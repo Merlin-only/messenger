@@ -1,0 +1,108 @@
+/* Стили для общего контейнера чата */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Стили для области отображения сообщений */
+.message-area {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Стили для каждого сообщения в чате */
+.message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+/* Стили для информации об отправителе сообщения */
+.message .sender {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Стили для текста сообщения */
+.message .content {
+  font-size: 16px;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 10px;
+  max-width: 80%;
+  align-self: flex-start;
+}
+
+/* Стили для кнопки отправки сообщения */
+.send-button {
+  margin-top: 10px;
+  align-self: flex-end;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+/* Стили для формы создания/редактирования групповых чатов */
+.group-chat-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Стили для поля ввода названия группового чата */
+.group-chat-form input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+/* Стили для кнопки создания/редактирования группового чата */
+.group-chat-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+/* Стили для кнопки удаления группового чата */
+.delete-chat-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Стили для формы редактирования личной информации пользователя */
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Стили для поля ввода имени пользователя */
+.edit-profile-form input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+/* Стили для кнопки редактирования личной информации пользователя */
+.edit-profile-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px

@@ -1,0 +1,21 @@
+{% extends 'default.html' %}
+
+{% block content %}
+  <h2>Edit Profile</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_first_name">First name:</label>
+      <input type="text" class="form-control" id="id_first_name" name="first_name" value="{{ user.first_name }}">
+    </div>
+    <div class="form-group">
+      <label for="id_last_name">Last name:</label>
+      <input type="text" class="form-control" id="id_last_name" name="last_name" value="{{ user.last_name }}">
+    </div>
+    <div class="form-group">
+      <label for="id_avatar">Avatar:</label>
+      <input type="file" class="form-control-file" id="id_avatar" name="avatar">
+    </div>
+    <button type="submit" class="btn btn-primary">Save changes</button>
+  </form>
+{% endblock %}

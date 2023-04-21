@@ -1,0 +1,44 @@
+{% extends 'default.html' %}
+
+{% block content %}
+  <h2>Group Chat "{{ chat.name }}"</h2>
+  <div id="messages">
+    {% for message in messages %}
+      <div class="message">
+        <strong>{{ message.author.username }}</strong>
+        <span class="timestamp">{{ message.timestamp }}</span>
+        <p>{{ message.content }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  <form method="POST" id="message-form">
+    {% csrf_token %}
+    <input type="text" name="message-input" id="message-input">
+    <button type="submit">Send</button>
+  </form>
+  <script>
+    var chatSocket = new WebSocket(
+        'ws://'
+        + window.location.host
+        + '/ws/chat/{{ chat.id }}/'
+    );
+
+    chatSocket.onmessage = function(event) {
+        var message = JSON.parse(event.data);
+        var messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+        messageElement.innerHTML = '<strong>' + message.author + '</strong> <span class="timestamp">' + message.timestamp + '</span> <p>' + message.content + '</p>';
+        document.querySelector('#messages').appendChild(messageElement);
+    };
+
+    document.querySelector('#message-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var messageInputDom = document.querySelector('#message-input');
+        var message = messageInputDom.value;
+        chatSocket.send(JSON.stringify({
+            'message': message
+        }));
+        messageInputDom.value = '';
+    });
+  </script>
+{% endblock %}
